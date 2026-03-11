@@ -1,0 +1,22 @@
+<canvas id="revenueChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    new Chart(document.getElementById("revenueChart"), {
+
+    type: "line",
+
+    data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+
+    datasets: [{
+    label: "Revenue",
+    data: [1200, 900, 1400, 2000, 1700]
+    }]
+    }
+
+    })
+
+</script>

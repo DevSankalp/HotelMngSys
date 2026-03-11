@@ -1,0 +1,28 @@
+@page
+@model HotelManagementSystem.Pages.Billing.InvoiceModel
+
+<h1 class="text-2xl font-bold mb-6">Invoices</h1>
+
+<a href="/Billing/Invoice/Create" class="bg-blue-600 text-white px-4 py-2 rounded">
+    Add Invoice
+</a>
+
+<table class="w-full mt-6 bg-white shadow">
+    <thead>
+        <tr class="bg-gray-200">
+            <th>Booking</th>
+            <th>Total</th>
+            <th>Issued</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inv in Model.Invoices)
+        {
+            <tr>
+                <td>@inv.BookingId</td>
+                <td>@inv.TotalAmount</td>
+                <td>@inv.IssuedDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

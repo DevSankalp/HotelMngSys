@@ -1,0 +1,28 @@
+@page
+@model HotelManagementSystem.Pages.Billing.PaymentModel
+
+<h1 class="text-2xl font-bold mb-6">Payments</h1>
+
+<a href="/Billing/Payment/Create" class="bg-blue-600 text-white px-4 py-2 rounded">
+    Add Payment
+</a>
+
+<table class="w-full mt-6 bg-white shadow">
+    <thead>
+        <tr class="bg-gray-200">
+            <th>Booking</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pay in Model.Payments)
+        {
+            <tr>
+                <td>@pay.BookingId</td>
+                <td>@pay.Amount</td>
+                <td>@pay.PaymentDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

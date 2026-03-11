@@ -1,0 +1,11 @@
+@page
+@model HotelManagementSystem.Pages.Billing.CreatePaymentModel
+
+<h1 class="text-2xl font-bold mb-6">Create Payment</h1>
+
+<form method="post">
+    <input asp-for="Payment.BookingId" placeholder="Booking Id" />
+    <input asp-for="Payment.Amount" placeholder="Amount" />
+    <input asp-for="Payment.PaymentDate" type="date" />
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+</form>
