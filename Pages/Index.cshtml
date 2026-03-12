@@ -1,7 +1,4 @@
-@page
-@model HotelManagementSystem.Pages.IndexModel
-
-<h1 class="text-2xl font-bold mb-6">Welcome to the Hotel Management System</h1>
-<p>Use the sidebar to navigate around the application.</p>
-<p>If you prefer to go straight to the dashboard, <a href="/Dashboard" class="text-blue-600 underline">click here</a>.
-</p>
+﻿@page
+@{
+    Response.Redirect("/Dashboard");
+}

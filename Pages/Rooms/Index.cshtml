@@ -1,37 +1,51 @@
-@page
-@model HotelManagementSystem.Pages.Rooms.RoomsModel
+﻿@page
+@model HotelManagementSystem.Pages.Rooms.IndexModel
 
-<h1 class="text-xl font-bold mb-6">Rooms</h1>
+<h1>Rooms</h1>
 
-<a href="/Rooms/Create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-    Add Room
-</a>
+<a href="/Rooms/Create">Add Room</a>
 
-<table class="w-full mt-6 bg-white shadow rounded">
+<table>
 
-    <thead class="bg-gray-200">
-
+    <thead>
         <tr>
-            <th class="p-3">Room Number</th>
-            <th>Type</th>
+            <th>Room Number</th>
+            <th>Room Type</th>
             <th>Price</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
-
     </thead>
 
     <tbody>
 
         @foreach (var room in Model.Rooms)
         {
-            <tr class="border-t hover:bg-gray-100 transition">
-                <td class="p-3">@room.RoomNumber</td>
-                <td>@room.TypeName</td>
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.RoomType?.Name</td>
                 <td>@room.Price</td>
-                <td>@room.Status</td>
+                <td>
+                    @if (@room.Status == "Available")
+                    {
+                        <span style="color:green;font-weight:bold">Available</span>
+                    }
+                    else if (@room.Status == "Occupied")
+                    {
+                        <span style="color:red;font-weight:bold">Occupied</span>
+                    }
+                    else
+                    {
+                        <span style="color:orange;font-weight:bold">Maintenance</span>
+                    }
+                </td>
+
+                <td>
+                    <a href="/Rooms/Edit?id=@room.Id">Edit</a>
+                    <a href="/Rooms/Delete?id=@room.Id">Delete</a>
+                </td>
             </tr>
         }
 
     </tbody>
-
 </table>

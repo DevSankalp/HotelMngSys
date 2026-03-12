@@ -1,34 +1,38 @@
-@page
-@model HotelManagementSystem.Pages.Dashboard.DashboardModel
+﻿@page
+@model HotelManagementSystem.Pages.DashboardModel
 
-<div class="grid grid-cols-4 gap-6">
+<h1>Hotel Dashboard</h1>
 
-    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
+<div class="dashboard">
 
-        <h3 class="text-gray-500">Total Rooms</h3>
-        <p class="text-3xl font-bold text-blue-600">120</p>
-
+    <div class="card">
+        <h3>Total Rooms</h3>
+        <p>@Model.TotalRooms</p>
     </div>
 
-    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
-
-        <h3 class="text-gray-500">Occupied</h3>
-        <p class="text-3xl font-bold text-green-600">80</p>
-
+    <div class="card">
+        <h3>Available Rooms</h3>
+        <p>@Model.AvailableRooms</p>
     </div>
 
-    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
-
-        <h3 class="text-gray-500">Bookings Today</h3>
-        <p class="text-3xl font-bold text-purple-600">24</p>
-
+    <div class="card">
+        <h3>Occupied Rooms</h3>
+        <p>@Model.OccupiedRooms</p>
     </div>
 
-    <div class="bg-white p-6 rounded-xl shadow hover:scale-105 transition">
-
-        <h3 class="text-gray-500">Revenue</h3>
-        <p class="text-3xl font-bold text-orange-600">$8500</p>
-
+    <div class="card">
+        <h3>Total Guests</h3>
+        <p>@Model.TotalGuests</p>
     </div>
 
+    <div class="card">
+        <h3>Active Bookings</h3>
+        <p>@Model.ActiveBookings</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Revenue</h3>
+        <p>₹@Model.TotalRevenue</p>
+    </div>
+    <hr>
 </div>

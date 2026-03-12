@@ -1,0 +1,42 @@
+﻿@page
+@model HotelManagementSystem.Pages.Bookings.EditModel
+
+<h1>Edit Booking</h1>
+<div asp-validation-summary="All" style="color:red"></div>
+<form method="post">
+
+    <input type="hidden" asp-for="Booking.Id" />
+
+    <div>
+        <label>Guest</label>
+        <select asp-for="Booking.GuestId" asp-items="Model.Guests"></select>
+    </div>
+
+    <div>
+        <label>Room</label>
+        <select asp-for="Booking.RoomId" asp-items="Model.Rooms"></select>
+    </div>
+
+    <div>
+        <label asp-for="Booking.CheckInDate"></label>
+        <input asp-for="Booking.CheckInDate" type="date" />
+    </div>
+
+    <div>
+        <label asp-for="Booking.CheckOutDate"></label>
+        <input asp-for="Booking.CheckOutDate" type="date" />
+    </div>
+
+    <div>
+        <label>Status</label>
+        <select asp-for="Booking.Status">
+            <option>Reserved</option>
+            <option>CheckedIn</option>
+            <option>CheckedOut</option>
+            <option>Cancelled</option>
+        </select>
+    </div>
+
+    <button type="submit">Update</button>
+
+</form>

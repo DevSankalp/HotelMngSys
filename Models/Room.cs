@@ -1,17 +1,23 @@
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 namespace HotelManagementSystem.Models
 {
     public class Room
     {
-        public int RoomId { get; set; }
+        public int Id { get; set; }
 
-        public string? RoomNumber { get; set; }
+        [Required]
+        public int RoomNumber { get; set; }
 
+        [Required]
         public int RoomTypeId { get; set; }
 
-        public string? TypeName { get; set; }
+        [ValidateNever]
+        public RoomType? RoomType { get; set; }
 
         public decimal Price { get; set; }
 
-        public string? Status { get; set; }
+        public string Status { get; set; } = "Available";
     }
 }

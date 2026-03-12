@@ -1,0 +1,15 @@
+﻿@page
+@model HotelManagementSystem.Pages.Payments.DeleteModel
+
+<h1>Delete Payment</h1>
+
+<h3>Are you sure?</h3>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Payment.Id" />
+
+    <button type="submit">Delete</button>
+    <a asp-page="Index">Cancel</a>
+
+</form>

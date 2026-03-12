@@ -1,0 +1,24 @@
+﻿@page
+@model HotelManagementSystem.Pages.Payments.CreateModel
+
+<h1>Add Payment</h1>
+<div asp-validation-summary="All" style="color:red"></div>
+<form method="post">
+
+    <div>
+        <label>Booking</label>
+        <select asp-for="Payment.BookingId" asp-items="Model.Bookings"></select>
+    </div>
+
+    <div>
+        <label>Payment Method</label>
+        <select asp-for="Payment.PaymentMethod">
+            <option>Cash</option>
+            <option>Card</option>
+            <option>UPI</option>
+        </select>
+    </div>
+
+    <button type="submit">Save</button>
+
+</form>

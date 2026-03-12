@@ -1,0 +1,34 @@
+﻿@page
+@model HotelManagementSystem.Pages.Payments.IndexModel
+
+<h1>Payments</h1>
+
+<a asp-page="Create">Add Payment</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Guest</th>
+            <th>Room</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Method</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Payments)
+        {
+            <tr>
+                <td>@item.Booking.Guest.FullName</td>
+                <td>@item.Booking.Room.RoomNumber</td>
+                <td>@item.Amount</td>
+                <td>@item.PaymentDate.ToShortDateString()</td>
+                <td>@item.PaymentMethod</td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

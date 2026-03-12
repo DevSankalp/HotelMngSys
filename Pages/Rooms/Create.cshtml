@@ -1,21 +1,36 @@
-@page
-@using Microsoft.AspNetCore.Mvc.Rendering
-@model HotelManagementSystem.Pages.Rooms.CreateRoomModel
+﻿@page
+@model HotelManagementSystem.Pages.Rooms.CreateModel
 
-<h1 class="text-2xl font-bold mb-6">Create Room</h1>
+<h1>Add Room</h1>
 
 <form method="post">
-    <input asp-for="Room.RoomNumber" placeholder="Room Number" />
-    <input asp-for="Room.RoomTypeId" placeholder="Type ID" />
-    <input asp-for="Room.TypeName" placeholder="Type Name" />
-    <input asp-for="Room.Price" placeholder="Price" />
-    <select asp-for="Room.Status">
-        <option value="">-- select status --</option>
-        <option value="Available">Available</option>
-        <option value="Occupied">Occupied</option>
-        <option value="Maintenance">Maintenance</option>
-    </select>
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">
-        Save
-    </button>
+
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="Room.RoomNumber"></label>
+        <input asp-for="Room.RoomNumber" />
+    </div>
+
+    <div>
+        <label>Room Type</label>
+        <select asp-for="Room.RoomTypeId" asp-items="Model.RoomTypeList"></select>
+    </div>
+
+    <div>
+        <label asp-for="Room.Price"></label>
+        <input asp-for="Room.Price" />
+    </div>
+
+    <div>
+        <label asp-for="Room.Status"></label>
+        <select asp-for="Room.Status">
+            <option>Available</option>
+            <option>Occupied</option>
+            <option>Maintenance</option>
+        </select>
+    </div>
+
+    <button type="submit">Save</button>
+
 </form>

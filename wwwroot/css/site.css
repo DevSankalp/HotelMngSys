@@ -1,1 +1,69 @@
-@import "tailwindcss";
+body {
+    padding: 0 30px;
+    font-family: Arial;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+.navbarCont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    padding: 15px;
+}
+
+    .navbar a {
+        color: black;
+        margin-right: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+    button:hover {
+        background: #0056b3;
+    }

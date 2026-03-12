@@ -1,27 +1,21 @@
-@page
-@model HotelManagementSystem.Pages.Bookings.BookingsModel
+﻿@page
+@model HotelManagementSystem.Pages.Bookings.IndexModel
 
-<h1 class="text-2xl font-bold mb-6">Bookings</h1>
+<h1>Bookings</h1>
 
-<a href="/Bookings/Create" class="bg-blue-600 text-white px-4 py-2 rounded">
+<a asp-page="Create">New Booking</a>
 
-    Add Booking
-
-</a>
-
-<table class="w-full mt-6 bg-white shadow">
+<table border="1">
 
     <thead>
-
-        <tr class="bg-gray-200">
-
-            <th>Customer</th>
+        <tr>
+            <th>Guest</th>
             <th>Room</th>
             <th>Check In</th>
             <th>Check Out</th>
-
+            <th>Status</th>
+            <th>Actions</th>
         </tr>
-
     </thead>
 
     <tbody>
@@ -29,15 +23,16 @@
         @foreach (var booking in Model.Bookings)
         {
             <tr>
+                <td>@booking.Guest?.FullName</td>
+                <td>@booking.Room?.RoomNumber</td>
+                <td>@booking.CheckInDate.ToShortDateString()</td>
+                <td>@booking.CheckOutDate.ToShortDateString()</td>
+                <td>@booking.Status</td>
 
-                <td>@booking.CustomerId</td>
-
-                <td>@booking.RoomId</td>
-
-                <td>@booking.CheckInDate</td>
-
-                <td>@booking.CheckOutDate</td>
-
+                <td>
+                    <a asp-page="Edit" asp-route-id="@booking.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@booking.Id">Delete</a>
+                </td>
             </tr>
         }
 

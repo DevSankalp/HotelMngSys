@@ -1,9 +1,31 @@
-@page
-@model HotelManagementSystem.Pages.Bookings.BookingsModel
+﻿@page
+@model HotelManagementSystem.Pages.Bookings.CreateModel
 
-<h1 class="text-2xl font-bold mb-6">Create Booking</h1>
+<h1>Create Booking</h1>
 
+<div asp-validation-summary="All"></div>
 <form method="post">
-    <input asp-for="Booking.CustomerName" placeholder="Name" />
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+
+    <div>
+        <label>Guest</label>
+        <select asp-for="Booking.GuestId" asp-items="Model.Guests"></select>
+    </div>
+
+    <div>
+        <label>Room</label>
+        <select asp-for="Booking.RoomId" asp-items="Model.Rooms"></select>
+    </div>
+
+    <div>
+        <label asp-for="Booking.CheckInDate"></label>
+        <input asp-for="Booking.CheckInDate" type="date" />
+    </div>
+
+    <div>
+        <label asp-for="Booking.CheckOutDate"></label>
+        <input asp-for="Booking.CheckOutDate" type="date" />
+    </div>
+
+    <button type="submit">Save</button>
+
 </form>

@@ -1,0 +1,38 @@
+﻿@page
+@model HotelManagementSystem.Pages.Guests.CreateModel
+
+<h1>Add Guest</h1>
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+
+    <div>
+        <label asp-for="Guest.FullName"></label>
+        <input asp-for="Guest.FullName" />
+        <span asp-validation-for="Guest.FullName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Guest.Phone"></label>
+        <input asp-for="Guest.Phone" />
+        <span asp-validation-for="Guest.Phone"></span>
+    </div>
+
+    <div>
+        <label asp-for="Guest.Email"></label>
+        <input asp-for="Guest.Email" />
+    </div>
+
+    <div>
+        <label asp-for="Guest.Address"></label>
+        <input asp-for="Guest.Address" />
+        <span asp-validation-for="Guest.Address"></span>
+    </div>
+
+    <button type="submit">Save</button>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

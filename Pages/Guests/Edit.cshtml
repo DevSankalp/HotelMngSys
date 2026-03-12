@@ -1,0 +1,32 @@
+﻿@page
+@model HotelManagementSystem.Pages.Guests.EditModel
+
+<h1>Edit Guest</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Guest.Id" />
+
+    <div>
+        <label asp-for="Guest.FullName"></label>
+        <input asp-for="Guest.FullName" />
+    </div>
+
+    <div>
+        <label asp-for="Guest.Phone"></label>
+        <input asp-for="Guest.Phone" />
+    </div>
+
+    <div>
+        <label asp-for="Guest.Email"></label>
+        <input asp-for="Guest.Email" />
+    </div>
+
+    <div>
+        <label asp-for="Guest.Address"></label>
+        <input asp-for="Guest.Address" />
+    </div>
+
+    <button type="submit">Update</button>
+
+</form>

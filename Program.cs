@@ -1,26 +1,32 @@
-using HotelManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
+using HotelManagementSystem.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// determine which connection string to use; default to empty if not set
-string mode = builder.Configuration["DatabaseMode"] ?? string.Empty;
-
-// GetConnectionString expects a non-null name, so use empty string if mode is missing
-string? conn = builder.Configuration.GetConnectionString(mode);
-
-builder.Services.AddDbContext<HotelDbContext>(options => options.UseSqlServer(conn));
-
+// Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddSession();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-app.UseStaticFiles();
-app.UseRouting();
-app.UseSession();
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-app.MapRazorPages();
+app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+app.MapRazorPages()
+   .WithStaticAssets();
 
 app.Run();

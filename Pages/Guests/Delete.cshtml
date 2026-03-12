@@ -1,0 +1,19 @@
+﻿@page
+@model HotelManagementSystem.Pages.Guests.DeleteModel
+
+<h1>Delete Guest</h1>
+
+<h3>Are you sure you want to delete this guest?</h3>
+
+<div>
+    <strong>@Model.Guest.FullName</strong>
+</div>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Guest.Id" />
+
+    <button type="submit">Delete</button>
+    <a asp-page="Index">Cancel</a>
+
+</form>

@@ -1,0 +1,36 @@
+﻿@page
+@model HotelManagementSystem.Pages.Guests.IndexModel
+
+<h1>Guest Management</h1>
+
+<p>
+    <a asp-page="Create">Add New Guest</a>
+</p>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var guest in Model.Guests)
+        {
+            <tr>
+                <td>@guest.FullName</td>
+                <td>@guest.Phone</td>
+                <td>@guest.Email</td>
+                <td>@guest.Address</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@guest.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-id="@guest.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

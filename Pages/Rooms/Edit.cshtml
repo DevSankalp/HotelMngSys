@@ -1,14 +1,35 @@
-@page "{id:int}"
-@model HotelManagementSystem.Pages.Rooms.EditRoomModel
+﻿@page
+@model HotelManagementSystem.Pages.Rooms.EditModel
 
-<h1 class="text-2xl font-bold mb-6">Edit Room</h1>
+<h1>Edit Room</h1>
 
 <form method="post">
-    <input type="hidden" asp-for="Room.RoomId" />
-    <input asp-for="Room.RoomNumber" placeholder="Room Number" />
-    <input asp-for="Room.RoomTypeId" placeholder="Type ID" />
-    <input asp-for="Room.TypeName" placeholder="Type Name" />
-    <input asp-for="Room.Price" placeholder="Price" />
-    <input asp-for="Room.Status" placeholder="Status" />
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+    <input type="hidden" asp-for="Room.Id" />
+
+    <div>
+        <label asp-for="Room.RoomNumber"></label>
+        <input asp-for="Room.RoomNumber" />
+    </div>
+
+    <div>
+        <label>Room Type</label>
+        <select asp-for="Room.RoomTypeId" asp-items="Model.RoomTypeList"></select>
+    </div>
+
+    <div>
+        <label asp-for="Room.Price"></label>
+        <input asp-for="Room.Price" />
+    </div>
+
+    <div>
+        <label asp-for="Room.Status"></label>
+        <select asp-for="Room.Status">
+            <option>Available</option>
+            <option>Occupied</option>
+            <option>Maintenance</option>
+        </select>
+    </div>
+
+    <button type="submit">Update</button>
+
 </form>
